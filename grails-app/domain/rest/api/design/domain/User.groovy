@@ -13,6 +13,7 @@ class User {
 
     static mapping = {
         table "user"
+        version false
         columns {
             id column: "id"
             name column: "name"

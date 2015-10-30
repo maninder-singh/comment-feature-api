@@ -8,16 +8,16 @@ class UserService {
 
     def getUserList() {
         def userList = new ArrayList<User>()
-        def result = User.executeQuery("select id,name,email,isExternal from User")
+        def result = User.list()
 
-        result.each {
+        result.each { eachUser ->
             def user = new User()
-            user.setId(it[0])
-            user.setEmail(it[1])
-            user.setName(it[2])
-            user.setIsExternal(it[3])
+            user.setId(eachUser.getId())
+            user.setEmail(eachUser.getEmail())
+            user.setName(eachUser.getName())
+            user.setIsExternal(eachUser.getIsExternal())
             userList << user
         }
-        return userList
+        userList
     }
 }
