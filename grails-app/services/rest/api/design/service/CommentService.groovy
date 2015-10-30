@@ -42,6 +42,7 @@ class CommentService {
             comment.setDescription(eachComment.getDescription())
             comment.setIsCommentResolve(eachComment.getIsCommentResolve())
             comment.setImage(eachComment.getImage())
+            comment.setCommentedBy(eachComment.getCommentedBy)
             comment.setCreatedAt(eachComment.getCreatedAt())
             commentResponses << comment
         }

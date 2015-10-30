@@ -20,4 +20,24 @@ class UserService {
         }
         userList
     }
+
+    def getUserById(def userId){
+        def user = User.get(userId)
+        user
+    }
+
+    def insertUser(def user){
+        def userObject = new User()
+        userObject.setEmail(user.getEmail())
+        userObject.setName(user.getName())
+        userObject.setIsExternal(user.getIsExternal())
+
+        if(userObject.save()){
+            // when the userObject is save in the database
+            1
+        }else{
+            // when the userObject is not save in the database. The error occured while saving
+            0
+        }
+    }
 }

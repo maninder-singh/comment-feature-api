@@ -6,8 +6,14 @@ class UrlMappings {
 
         "/user"(controller: "user" ,parseRequest: true) {
                 action = [
-                        GET: "getUsers"
+                        GET: "getUsers",
+                        POST : "insertUser"
                 ]
+        }
+        "/user/$id"(controller: "user" , parseRequest: true){
+            action = [
+                    GET: "getUserById"
+            ]
         }
         "/comment"(controller: "comment" , parseRequest: true){
                 action = [
