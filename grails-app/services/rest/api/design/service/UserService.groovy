@@ -7,23 +7,17 @@ import rest.api.design.domain.User
 class UserService {
 
     def getUserList() {
-        def userList = new ArrayList<User>();
-        def user = new User()
-        user.setId(1)
-        user.setName("Maninder Singh")
-        user.setEmail("maninder.singh@comment.com")
-        user.setIsExternal(true)
-        userList << user
-        user = new User()
-        user.setId(2)
-        user.setName("Bhuvneshwar Sharma")
-        user.setEmail("bhuvneshwar.sharma@comment.com")
-        user.setIsExternal(true)
-        userList << user
-        user.setId(1)
-        user.setName("Pankaj Kumar")
-        user.setEmail("pankaj.kumar@comment.com")
-        user.setIsExternal(true)
-        userList << user
+        def userList = new ArrayList<User>()
+        def result = User.executeQuery("select id,name,email,isExternal from User")
+
+        result.each {
+            def user = new User()
+            user.setId(it[0])
+            user.setEmail(it[1])
+            user.setName(it[2])
+            user.setIsExternal(it[3])
+            userList << user
+        }
+        return userList
     }
 }

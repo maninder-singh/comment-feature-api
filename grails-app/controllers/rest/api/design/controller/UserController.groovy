@@ -15,4 +15,8 @@ class UserController {
         def result = [data : userList]
         render result as JSON
     }
+
+    def insertUser(){
+
+    }
 }
