@@ -8,8 +8,8 @@ class Comment {
     boolean isCommentResolve = false
     byte[] image
     Date createdAt
+    User commentedBy
 
-    static belongsTo = [commentedBy : User]
     static constraints = {
         id blank:false
         image nullable: true
