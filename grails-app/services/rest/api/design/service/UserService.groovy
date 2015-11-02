@@ -1,12 +1,15 @@
 package rest.api.design.service
 
 import grails.transaction.Transactional
+import groovy.sql.Sql
 import rest.api.design.domain.User
+
+import java.sql.SQLException
 
 @Transactional
 class UserService {
 
-    def getUserList() {
+    def getUserList() throws Exception{
         def userList = new ArrayList<User>()
         def result = User.list()
 
@@ -21,23 +24,30 @@ class UserService {
         userList
     }
 
-    def getUserById(def userId){
+    def getUserById(def userId) throws Exception{
         def user = User.get(userId)
         user
     }
 
-    def insertUser(def user){
+    def insertUser(def user) throws SQLException,Exception{
         def userObject = new User()
         userObject.setEmail(user.getEmail())
         userObject.setName(user.getName())
         userObject.setIsExternal(user.getIsExternal())
+        userObject.save(flush: true)
+        userObject
+    }
 
-        if(userObject.save()){
-            // when the userObject is save in the database
-            1
-        }else{
-            // when the userObject is not save in the database. The error occured while saving
-            0
-        }
+    def updateUser(def userId ,def user) throws SQLException,Exception{
+        def userObject = User.findById(userId)
+        userObject.setEmail(user.getEmail())
+        userObject.setName(user.getName())
+        userObject.setIsExternal(user.getIsExternal())
+        userObject.save(flush: true)
+    }
+
+    def deleteUser(def userId) throws SQLException,Exception{
+        def userObject = User.findById(userId)
+        userObject.delete(flush: true)
     }
 }
