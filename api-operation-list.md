@@ -66,4 +66,7 @@ Note :
 ### Delete user
 ```
 curl --header "Content-type: application/json" --request DELETE -v http://localhost:8080/comment-feature-api/user/{user-id}
+
+Note : 
+1. {user-id} is Integer
 ```
