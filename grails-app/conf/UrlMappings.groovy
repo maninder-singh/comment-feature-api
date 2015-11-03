@@ -19,12 +19,15 @@ class UrlMappings {
         }
         "/comment"(controller: "comment" , parseRequest: true){
                 action = [
-                        GET : "getCommentList"
+                        GET : "getCommentList",
+                        POST : "insertComment",
+                        PUT: "updateComment"
                 ]
         }
         "/comment/$commentId"(controller: "comment",parseRequest: true){
                 action = [
-                        GET : "getCommentResonsesById"
+                        GET : "getCommentResonsesById",
+                        DELETE: "deleteComment"
                 ]
         }
         "/"(view:"/index")

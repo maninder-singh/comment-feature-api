@@ -26,6 +26,7 @@ class Comment {
             image column: "webpage",sqlType: "blob"
             createdAt column: "created_at"
             commentedBy column: "commented_by"
+            //commentedBy column: "commented_by",joinTable: [name : 'user',key: 'commented_by' ,column: 'id']
         }
     }
 }
