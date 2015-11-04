@@ -2,7 +2,7 @@
 Restful api design using Grails 2 and Mysql.
 
 ### Description 
-It provide's startup guide for building application using grails framework.
+It provide's startup guide for building restful web service using grails framework.
 
 ### Steps to run application
 1. Change database credentail in grails-app/conf/DataSource.groovy file
@@ -10,3 +10,5 @@ It provide's startup guide for building application using grails framework.
 3. Change the database dependency in grails-app/conf/BuildConfig.groovy file at line number 51.
 4. run export-comment-feature.sql in the database to create database schema.
 5. Use api-operation-list.md file for relevant api operation's.
+6. Open a terminal.Go to root directory of comment-feature-api project.
+7. `grails run-app`
