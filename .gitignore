@@ -1,0 +1,4 @@
+# List of file's and directory's for git to ignore
+
+.idea/*
+target/*
